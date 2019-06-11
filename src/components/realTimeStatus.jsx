@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const RealTimeStatus = props => {
-    <div>{props.currentTime}</div>
-}
+  return <div>{props.currentTime}</div>;
+};
 
 export default RealTimeStatus;

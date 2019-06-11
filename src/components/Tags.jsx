@@ -1,12 +1,7 @@
-import React from 'react'
-import TagItem from './tagItem';
+import React from "react";
 
 const Tags = props => {
-    <div className = 'tags-area'>
-        <TagItem tagName='NASDAQ'/>
-        <TagItem tagName='Technology'/>
-        <TagItem tagName='USD'/>
-    </div>
-}
+  return <div className="tags-area">{props.tagItems}</div>;
+};
 
 export default Tags;

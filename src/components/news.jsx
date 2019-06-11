@@ -1,13 +1,7 @@
-import React from 'react'
-import NewsItem from './newsItem'
+import React from "react";
 
 const News = props => {
-    <div className = 'news-area'>
-        <NewsItem newsItemContent='This is a piece of news' newsItemTimestamp='some time'/>
-        <NewsItem newsItemContent='This is a piece of news2' newsItemTimestamp='some time2'/>
-        <NewsItem newsItemContent='This is a piece of news3' newsItemTimestamp='some time3'/>
-        <NewsItem newsItemContent='This is a piece of news4' newsItemTimestamp='some time4'/>
-    </div>
-}
+  return <div className="news-area">{props.newsItems}</div>;
+};
 
-export default News
+export default News;

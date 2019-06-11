@@ -1,12 +1,7 @@
-import React from 'react'
-import MarketItem from './marketItem'
+import React from "react";
 
 const Market = props => {
-    <div clasName='market-area'>
-        <MarketItem marketItemName='NASDAQ' marketItemPrice='$999' marketItemStats='123$ | 456%'/>
-        <MarketItem marketItemName='DJIA' marketItemPrice='$998' marketItemStats='234$ | 567%'/>
-        <MarketItem marketItemName='S&P' marketItemPrice='$997' marketItemStats='345$ | 678%'/>
-    </div>
-}
+  return <div clasName="market-area">{props.marketItems}</div>;
+};
 
 export default Market;

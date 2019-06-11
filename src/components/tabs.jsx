@@ -1,12 +1,7 @@
-import React from 'react'
-import TabItem from './TabItem'
+import React from "react";
 
 const Tabs = props => {
-    <div className='tabs-area'>
-            <TabItem tabName='Quote'/>
-            <TabItem tabName='Markets'/>
-            <TabItem tabName='Watchlists'/>
-        </div>
-}
+  return <div className="tabs-area">{props.tabsItem}</div>;
+};
 
 export default Tabs;

@@ -1,5 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Graph = prop => {
-    <div>Some graph thingy</div>
-}
+const Graph = props => {
+  return <div className="graph-area">{props.graphItem}</div>;
+};
+
+export default Graph;
