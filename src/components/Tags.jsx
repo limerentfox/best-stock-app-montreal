@@ -5,7 +5,7 @@ const Tags = props => {
   return (
     <div className="tags-area">
       {props.tagsList.map(n => (
-        <TagItem name={n} />
+        <TagItem tagName={n} />
       ))}
     </div>
   );

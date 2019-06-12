@@ -10,8 +10,8 @@ const SearchBarArea = props => {
     <div className="searchBar-area">
       <SearchBar />
       <Tags tagsList={['NASDAQ', 'Technology', 'USD']}/>
-      <MarketStatus marketStatusSymbol='soleil' marketStatus='Open'/>
       <RealTimeStatus currentTime='12:00'/>
+      <MarketStatus marketStatusSymbol='soleil' marketStatus='Open'/>
     </div>
   );
 };

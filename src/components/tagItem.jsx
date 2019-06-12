@@ -1,7 +1,7 @@
 import React from "react";
 
 const TagItem = props => {
-  return <span className="tag-item">{props.tagName}</span>;
+  return <div className="tag-item">{props.tagName}</div>;
 };
 
 export default TagItem;

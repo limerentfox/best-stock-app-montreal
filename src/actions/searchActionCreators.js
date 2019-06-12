@@ -14,7 +14,9 @@ export function setTagTerms(tagTermsList) {
     }
 }
 
-export function setMarketStatu(marketStatus) {
+
+
+export function setMarketStatus(marketStatus) {
     return {
         type: SET_MARKET_STATUS,
         payload: marketStatus
@@ -26,6 +28,10 @@ export function setMarketRealtimeStatus(marketRealtime) {
         type: SET_MARKET_REALTIME_STATUS,
         payload: marketRealtime
     }
+}
+
+export function getMarketRealtimeStatusAPI() {
+
 }
 
 export function setStockStatus(stockStatus) {
