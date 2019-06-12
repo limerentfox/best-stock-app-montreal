@@ -1,6 +1,6 @@
 import React from "react";
 
-const companyOverview = props => {
+const CompanyOverview = props => {
   return (
     <div clasName="company-overview-area">
       <h3 className="company-name">{props.companyName}</h3>
@@ -12,4 +12,4 @@ const companyOverview = props => {
   );
 };
 
-export default companyOverview;
+export default CompanyOverview;

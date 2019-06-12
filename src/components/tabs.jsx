@@ -1,5 +1,5 @@
 import React from "react";
-import TabItem from './tabItem';
+import TabItem from './TabItem';
 
 const generateTabItems = items => {
     return items.map((tabName) => <div className="tab-item">{<TabItem tabName={tabName}/>}</div>);

@@ -1,7 +1,7 @@
 import React from "react";
 
 const TopPeerItem = props => {
-  return <span>{props.topPeerName}</span>;
+  return <span className='topPeer-item'>{props.topPeerName}</span>;
 };
 
 export default TopPeerItem;
