@@ -4,8 +4,8 @@ import TagItem from "./TagItem";
 const Tags = props => {
   return (
     <div className="tags-area">
-      {props.tagName.map(n => (
-        <div className="tag-item">{<TagItem name={n} />}</div>
+      {props.tagsList.map(n => (
+        <TagItem name={n} />
       ))}
     </div>
   );
