@@ -1,8 +1,8 @@
 import React from "react";
 
-const StockStatus = props => {
+const SearchBarStockStatus = props => {
   return (
-    <div className="stock-status-area">
+    <div className="searchBarStockStatus">
       <span>{props.stockStatusUnitPrice}</span>
       <span>{props.stockStatusIndexChange}</span>
       <span>{props.stockStatusPercentage}</span>
@@ -10,4 +10,4 @@ const StockStatus = props => {
   );
 };
 
-export default StockStatus;
+export default SearchBarStockStatus;

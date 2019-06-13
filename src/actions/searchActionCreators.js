@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import * as actions from '../const/actions';
 
 export function setSearchTerm(searchTerm) {
     return {
