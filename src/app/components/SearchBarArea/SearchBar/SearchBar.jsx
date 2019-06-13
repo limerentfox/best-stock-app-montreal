@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {setSearchTerm, testApiFetch} from '../actions/searchActionCreators';
+import {setSearchTerm, testApiFetch} from '../../../../actions/searchActionCreators';
 
 export const SearchBar = props => {
   return (

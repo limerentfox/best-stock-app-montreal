@@ -1,5 +1,5 @@
 import React from 'react'
-import KeyStats from './components/KeyStats';
+import KeyStats from './KeyStats/KeyStats';
 import CompanyOverview from './CompanyOverview';
 import TopPeers from './TopPeers/TopPeers';
 
