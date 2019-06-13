@@ -1,12 +1,6 @@
-import * as actions from '../actions/actions';
+// import * as actions from '../actions/actions';
 
 const testApi = ({ getState, dispatch }) => next => action => {
-    // if (action.type !== actions.TEST_API_REQUEST) {
-    //     console.log(action.type);
-    //     console.log(actions.TEST_API_REQUEST);
-    //     console.log("You're not a API action, ciao");
-    //     next(action);
-    // }
 
     console.log("yooo im a middleware");
     const { url } = action.payload;

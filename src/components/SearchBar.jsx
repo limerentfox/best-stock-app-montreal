@@ -5,8 +5,8 @@ import {setSearchTerm, testApiFetch} from '../actions/searchActionCreators';
 export const SearchBar = props => {
   return (
     <div className="search-bar-area">
-      <input type="text" placeholder="Type to search..." value={props.searchTerm} onChange={props.testSearchTerm}/>
       <button type='submit' onClick={props.testApi} value={props.searchTerm}>Submit</button>
+      <input type="text" placeholder="Type to search..." value={props.searchTerm} onChange={props.testSearchTerm}/>
       <div>{props.searchTerm}</div>
     </div>
   );

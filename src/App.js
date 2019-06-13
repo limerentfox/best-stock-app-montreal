@@ -3,6 +3,7 @@ import './App.css';
 import SearchBarArea from './SearchBarArea';
 import { Provider } from 'react-redux';
 import store from './store';
+import './css/App.css'
 
 function App() {
   return (

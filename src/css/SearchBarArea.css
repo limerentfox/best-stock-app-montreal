@@ -1,0 +1,62 @@
+/* General Search Bar Area */
+
+.searchBar-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBar-area-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    border-bottom-color: aqua;
+    font-size: 2em;
+}
+
+.searchBar-area-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.market-status-area {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* Search Bar */
+
+
+/* Stock Stats */
+
+.stock-status-area>span {
+    margin-right: 0.5em;
+}
+
+
+/* Tags */
+
+.tags-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.tag-item {
+    background-color: lightblue;
+    padding: 0.25em 0.5em;
+    margin-right: 0.5em;
+    border-radius: 2px;
+}
+
+
+/* Current Time */
+
+
+/* Market Status */
+
+.market-status-area>div {
+    margin-right: 0.5em;
+}
