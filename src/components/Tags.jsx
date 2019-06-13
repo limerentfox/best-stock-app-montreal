@@ -1,5 +1,5 @@
 import React from "react";
-import TagItem from "./TagItem";
+import TagItem from "./tagItem";
 
 const Tags = props => {
   return (
