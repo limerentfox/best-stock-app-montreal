@@ -1,0 +1,18 @@
+/* COLORS */
+
+
+/* 
+background grdient one  #112f5b
+background gradientwo   #000000 
+
+tabs highlight          #F8F9FA
+
+graph highlight orange  #F8F9FA
+*/
+
+#root {
+    background-image: linear-gradient(to bottom right, #112f5b, #000000);
+    font-size: 14px;
+    height: 100vh;
+    color: white;
+}
