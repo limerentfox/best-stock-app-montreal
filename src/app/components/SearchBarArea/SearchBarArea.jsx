@@ -4,7 +4,7 @@ import "./css/SearchBarArea.css";
 import SearchBar from "./components/SearchBar";
 import Tags from "./components/Tags";
 import MarketStatus from "./components/MarketStatus";
-import RealTimeStatus from "./components/RealTimeStatus";
+import RealTimeStatus from "./RealTimeStatus";
 import StockStatus from "./components/StockStatus";
 
 const SearchBarArea = props => {

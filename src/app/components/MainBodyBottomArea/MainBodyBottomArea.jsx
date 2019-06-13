@@ -1,7 +1,7 @@
 import React from 'react'
 import KeyStats from './components/KeyStats';
-import CompanyOverview from './components/CompanyOverview';
-import TopPeers from './components/topPeers';
+import CompanyOverview from './CompanyOverview';
+import TopPeers from './TopPeers/TopPeers';
 
 const tempKeyStateListItems = [
     {

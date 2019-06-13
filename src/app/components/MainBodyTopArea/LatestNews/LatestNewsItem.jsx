@@ -1,12 +1,12 @@
 import React from "react";
 
-const NewsItem = props => {
+const LatestNewsItem = props => {
   return (
-    <div className="newsItem">
+    <div className="latestNewsItem">
       <span>{props.newsItemContent}</span>
       <span>{props.newsItemTimestamp}</span>
     </div>
   );
 };
 
-export default NewsItem;
+export default LatestNewsItem;

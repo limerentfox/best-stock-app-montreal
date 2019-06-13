@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import SearchBarArea from "./SearchBarArea";
 import { Provider } from "react-redux";
-import store from "./store";
-import protectedApiCall from "./services/protectedApiCall";
+import store from "../store";
+import protectedApiCall from "../services/protectedApiCall";
 import "./css/App.css";
 
 protectedApiCall("stock/aapl/cash-flow", "period=daily").then(data =>

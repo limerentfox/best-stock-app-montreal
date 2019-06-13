@@ -1,12 +1,12 @@
 import React from "react";
 
-const MarketStatus = props => {
+const SearchBarMarketStatus = props => {
   return (
-    <div className="marketStatus">
+    <div className="searchBarMarketStatus">
       <span>{props.marketStatusSymbol}</span>
       <span>Market{props.marketStatus}</span>
     </div>
   );
 };
 
-export default MarketStatus;
+export default SearchBarMarketStatus;

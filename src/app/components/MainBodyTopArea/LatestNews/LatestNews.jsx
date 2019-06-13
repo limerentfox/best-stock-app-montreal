@@ -1,7 +1,7 @@
 import React from "react";
 
-const News = props => {
+const LatestNews = props => {
   return <div className="news-area">{props.newsItems}</div>;
 };
 
-export default News;
+export default LatestNews;
