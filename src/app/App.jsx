@@ -8,10 +8,28 @@ import FooterArea from "./components/FooterArea/FooterArea";
 
 import { Provider } from "react-redux";
 import store from "../store";
-import protectedApiCall from "../services/protectedApiCall";
+import {
+  fetchNews,
+  fetchStats,
+  fetchPeers,
+  fetchOverview
+} from "../services/protected/protectedFetches";
+import { fetchBook } from "../services/basic/basicFetches";
 
-protectedApiCall("stock/aapl/cash-flow", "period=daily").then(data =>
-  console.log(data)
+/**
+ * Construct insuring the resolution of all the promises.
+ * Once all the promises are resolved, they can be accessed in order.
+ */
+Promise.all([
+  fetchBook("aapl"),
+  fetchNews("aapl"),
+  fetchStats("aapl"),
+  fetchPeers("aapl"),
+  fetchOverview("aapl")
+]).then(d =>
+  d.forEach(a => {
+    console.log(a);
+  })
 );
 
 function App() {
