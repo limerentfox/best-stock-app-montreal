@@ -6,9 +6,7 @@ import store from "./store";
 import protectedApiCall from "./services/protectedApiCall";
 import "./css/App.css";
 
-protectedApiCall("stock/aapl/cash-flow", "period=daily").then(data =>
-  console.log(data)
-);
+protectedApiCall("stock/aapl/company").then(data => console.log(data));
 
 function App() {
   return (
