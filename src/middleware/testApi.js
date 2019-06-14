@@ -1,28 +1,23 @@
-import * as actions from '../actions/actions';
+// import * as actions from '../actions/actions';
 
 const testApi = ({ getState, dispatch }) => next => action => {
-    // if (action.type !== actions.TEST_API_REQUEST) {
-    //     console.log(action.type);
-    //     console.log(actions.TEST_API_REQUEST);
-    //     console.log("You're not a API action, ciao");
-    //     next(action);
-    // }
+  console.log("yooo im a middleware");
+  const { url } = action.payload;
 
-    console.log("yooo im a middleware");
-    const { url } = action.payload;
+  // protectedApiCall(url)
 
-    fetch(url)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+  // fetch(url)
+  //     .then(response => {
+  //         return response.json();
+  //     })
+  //     .then(data => {
+  //         console.log(data);
+  //     })
+  //     .catch(error => {
+  //         console.error(error);
+  //     });
 
-    next(action);
-}
+  next(action);
+};
 
 export default testApi;
