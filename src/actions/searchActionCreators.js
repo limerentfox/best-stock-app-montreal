@@ -1,8 +1,15 @@
 import * as actions from '../const/actions';
 
-export function setSearchTerm(searchTerm) {
+export function setSearchTermInput(searchTerm) {
     return {
-        type: actions.SET_SEARCH_TERM,
+        type: actions.SET_SEARCH_TERM_INPUT,
+        payload: searchTerm
+    }
+}
+
+export function setSearchTermToSearch(searchTerm) {
+    return {
+        type: actions.SET_SEARCH_TERM_TO_SEARCH,
         payload: searchTerm
     }
 }
