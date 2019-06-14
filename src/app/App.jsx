@@ -7,7 +7,7 @@ import MainBodyBottomArea from "./components/MainBodyBottomArea/MainBodyBottomAr
 import FooterArea from "./components/FooterArea/FooterArea";
 
 import { Provider } from "react-redux";
-import store from "../store";
+import store from "../services/store/store";
 import {
   fetchNews,
   fetchStats,
