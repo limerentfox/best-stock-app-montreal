@@ -42,9 +42,9 @@ export function setStockStatus(stockStatus) {
     }
 }
 
-export const testApiFetch = (stockIndex) => ({
-    type: actions.TEST_API_REQUEST,
-    payload: {
-        url: `https://api.iextrading.com/1.0/stock/${stockIndex}/company`,
-    }
-})
+// export const testApiFetch = (stockIndex) => ({
+//     type: actions.TEST_API_REQUEST,
+//     payload: {
+//         url: `https://api.iextrading.com/1.0/stock/${stockIndex}/company`,
+//     }
+// })

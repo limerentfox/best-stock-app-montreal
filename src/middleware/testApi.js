@@ -1,23 +1,23 @@
 // import * as actions from '../actions/actions';
 
 const testApi = ({ getState, dispatch }) => next => action => {
-  console.log("yooo im a middleware");
-  const { url } = action.payload;
+    console.log("yooo im a middleware");
+    // const { url } = action.payload;
 
-  // protectedApiCall(url)
+    // protectedApiCall(url)
 
-  // fetch(url)
-  //     .then(response => {
-  //         return response.json();
-  //     })
-  //     .then(data => {
-  //         console.log(data);
-  //     })
-  //     .catch(error => {
-  //         console.error(error);
-  //     });
+    // fetch(url)
+    //     .then(response => {
+    //         return response.json();
+    //     })
+    //     .then(data => {
+    //         console.log(data);
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
 
-  next(action);
+    next(action);
 };
 
 export default testApi;
