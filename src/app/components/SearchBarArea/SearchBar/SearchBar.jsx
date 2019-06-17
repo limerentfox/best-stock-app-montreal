@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import store from '../../../../store/store';
 import {
-  getSearchTermInput,
+  getCompanySymbol,
   getError,
   getLoading,
 } from '../../../../reducers/reducer';
-import { setSearchTerm } from '../../../../actions/actionCreator';
+import { setCompanySymbol } from '../../../../actions/actionCreator';
 import fetchCompanyData from '../../../../actions/fetchCompanyData';
 
 export const SearchBar = props => {
@@ -16,7 +15,7 @@ export const SearchBar = props => {
       <form>
         <button
           type="submit"
-          value={props.searchTermInput}
+          value={props.companySymbol}
           onClick={props.fetchData}
         >
           Submit
@@ -24,11 +23,10 @@ export const SearchBar = props => {
         <input
           type="text"
           placeholder="Type to search..."
-          value={props.searchTermInput}
-          onChange={props.setSearchTermInput}
+          value={props.companySymbol}
+          onChange={props.setCompanySymbol}
         />
       </form>
-      {console.log(store.getState())}
     </div>
   );
 };
@@ -36,7 +34,7 @@ export const SearchBar = props => {
 const mapStateToProps = state => ({
   error: getError(state),
   loading: getLoading(state),
-  searchTermInput: getSearchTermInput(state),
+  companySymbol: getCompanySymbol(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -44,8 +42,8 @@ const mapDispatchToProps = dispatch => ({
     e.preventDefault();
     dispatch(fetchCompanyData(e.target.value));
   },
-  setSearchTermInput: e => {
-    dispatch(setSearchTerm(e.target.value));
+  setCompanySymbol: e => {
+    dispatch(setCompanySymbol(e.target.value));
   },
 });
 

@@ -2,13 +2,13 @@ import {
   FETCH_API_BEGIN,
   FETCH_API_SUCCESS,
   FETCH_API_FAILURE,
-  SET_SEARCH_TERM,
+  SET_COMPANY_SYMBOL,
 } from '../const/actions';
 
-export function setSearchTerm(searchTerm) {
+export function setCompanySymbol(companySymbol) {
   return {
-    type: SET_SEARCH_TERM,
-    payload: searchTerm,
+    type: SET_COMPANY_SYMBOL,
+    payload: companySymbol,
   };
 }
 

@@ -2,11 +2,11 @@ import {
   FETCH_API_BEGIN,
   FETCH_API_SUCCESS,
   FETCH_API_FAILURE,
-  SET_SEARCH_TERM,
+  SET_COMPANY_SYMBOL,
 } from '../const/actions';
 
 const DEFAULT_STATE = {
-  searchTermInput: '',
+  companySymbol: '',
   error: null,
   loading: false,
   timeSeries: null,
@@ -16,8 +16,8 @@ const DEFAULT_STATE = {
   keyStats: null,
 };
 
-const setSearchTerm = (state, action) => {
-  return { ...state, searchTermInput: action.payload };
+const setCompanySymbol = (state, action) => {
+  return { ...state, companySymbol: action.payload };
 };
 
 const fetchApiBegin = state => {
@@ -62,19 +62,18 @@ export const reducer = (state = DEFAULT_STATE, action) => {
       return fetchApiSuccess(state, action);
     case FETCH_API_FAILURE:
       return fetchApiFailure(state, action);
-    case SET_SEARCH_TERM:
-      return setSearchTerm(state, action);
+    case SET_COMPANY_SYMBOL:
+      return setCompanySymbol(state, action);
     default:
       return state;
   }
 };
 
-export const getSearchTermInput = state => state.searchTermInput;
-export const getSearchTermToSearch = state => state.searchTermToSearch;
-export const getData = state => state.data;
+export const getCompanySymbol = state => state.companySymbol;
 export const getError = state => state.error;
 export const getLoading = state => state.loading;
 export const getTimeSeries = state => state.timeSeries;
 export const getTopPeers = state => state.topPeers;
 export const getTopNews = state => state.topNews;
 export const getCompanyOverview = state => state.companyOverview;
+export const getKeyStats = state => state.keyStats;
