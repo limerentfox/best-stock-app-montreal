@@ -1,11 +1,11 @@
-import React from "react";
-import "./SearchBarArea.css";
+import React from 'react';
+import './SearchBarArea.css';
 
-import SearchBar from "./SearchBar/SearchBar";
-import Tags from "./Tags/Tags";
-import SearchBarMarketStatus from "./SearchBarMarketStatus";
-import RealTimeStatus from "./RealTimeStatus";
-import SearchBarStockStatus from "./SearchBarStockStatus";
+import SearchBar from './SearchBar/SearchBar';
+import Tags from './Tags/Tags';
+import SearchBarMarketStatus from './SearchBarMarketStatus';
+import RealTimeStatus from './RealTimeStatus';
+import SearchBarStockStatus from './SearchBarStockStatus';
 
 const SearchBarArea = props => {
   return (
@@ -19,7 +19,7 @@ const SearchBarArea = props => {
         />
       </div>
       <div className="searchBar-area-bottom">
-        <Tags tagsList={["NASDAQ", "Technology", "USD"]} />
+        <Tags tagsList={['NASDAQ', 'Technology', 'USD']} />
         <div className="market-status-area">
           <RealTimeStatus currentTime="12:00" />
           <SearchBarStockStatus

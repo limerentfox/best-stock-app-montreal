@@ -1,28 +1,53 @@
-import React from "react";
-import { connect } from "react-redux";
-import {setSearchTerm, testApiFetch} from '../../../../actions/searchActionCreators';
+import React from 'react';
+import { connect } from 'react-redux';
+
+import {
+  getCompanySymbol,
+  getError,
+  getLoading,
+} from '../../../../reducers/reducer';
+import { setCompanySymbol } from '../../../../actions/actionCreator';
+import fetchCompanyData from '../../../../actions/fetchCompanyData';
 
 export const SearchBar = props => {
   return (
     <div className="search-bar-area">
-      <button type='submit' onClick={props.testApi(props.searchTerm)}>Submit</button>
-      <input type="text" placeholder="Type to search..." value={props.searchTerm} onChange={props.testSearchTerm}/>
-      <div>{props.searchTerm}</div>
+      <form>
+        <button
+          type="submit"
+          value={props.companySymbol}
+          onClick={props.fetchData}
+        >
+          Submit
+        </button>
+        <input
+          type="text"
+          placeholder="Type to search..."
+          value={props.companySymbol}
+          onChange={props.setCompanySymbol}
+        />
+      </form>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  searchTerm: state.searchTerm
+  error: getError(state),
+  loading: getLoading(state),
+  companySymbol: getCompanySymbol(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  testSearchTerm: event => {
-    dispatch(setSearchTerm(event.target.value));
-    console.log("dispatching test search term");},
-  testApi: value => {
-    dispatch(testApiFetch(value));
-    console.log("dispatching test api fetch");
-  }
-})
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+const mapDispatchToProps = dispatch => ({
+  fetchData: e => {
+    e.preventDefault();
+    dispatch(fetchCompanyData(e.target.value));
+  },
+  setCompanySymbol: e => {
+    dispatch(setCompanySymbol(e.target.value));
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBar);

@@ -1,5 +1,5 @@
-import React from "react";
-import KeyStatsItem from "./KeyStatsItem";
+import React from 'react';
+import KeyStatsItem from './KeyStatsItem';
 
 const generateKeyStatsItem = items =>
   items.map(keyStatItem => (
