@@ -1,28 +1,55 @@
-import React from "react";
-import { connect } from "react-redux";
-import * as searchActions from '../../../../actions/searchActionCreators';
+import React from 'react';
+import { connect } from 'react-redux';
+
+import store from '../../../../store/store';
+import {
+  getSearchTermInput,
+  getError,
+  getLoading,
+} from '../../../../reducers/reducer';
+import { setSearchTerm } from '../../../../actions/actionCreator';
+import fetchCompanyData from '../../../../actions/fetchCompanyData';
 
 export const SearchBar = props => {
   return (
     <div className="search-bar-area">
-      <button type='submit' onClick={props.SetSearchTermToSearch(props.searchTermInput)}>Submit</button>
-      <input type="text" placeholder="Type to search..." value={props.searchTermInput} onChange={props.SetSearchTermInput}/>
-      <div>{props.searchTermInput}</div>
+      <form>
+        <button
+          type="submit"
+          value={props.searchTermInput}
+          onClick={props.fetchData}
+        >
+          Submit
+        </button>
+        <input
+          type="text"
+          placeholder="Type to search..."
+          value={props.searchTermInput}
+          onChange={props.setSearchTermInput}
+        />
+      </form>
+      {console.log(store.getState())}
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  searchTermInput: state.SearchBarReducer.searchTermInput,
-  searchTermToSearch: state.SearchBarReducer.searchTermToSearch
+  error: getError(state),
+  loading: getLoading(state),
+  searchTermInput: getSearchTermInput(state),
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  SetSearchTermInput: event => {
-    dispatch(searchActions.setSearchTermInput(event.target.value));
+const mapDispatchToProps = dispatch => ({
+  fetchData: e => {
+    e.preventDefault();
+    dispatch(fetchCompanyData(e.target.value));
   },
-  SetSearchTermToSearch: value => {
-    dispatch(searchActions.setSearchTermToSearch(value));
-  }
-})
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+  setSearchTermInput: e => {
+    dispatch(setSearchTerm(e.target.value));
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBar);
