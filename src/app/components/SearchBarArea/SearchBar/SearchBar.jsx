@@ -25,6 +25,7 @@ export const SearchBar = props => {
           placeholder="Type to search..."
           value={props.companySymbol}
           onChange={props.setCompanySymbol}
+          required
         />
       </form>
     </div>
