@@ -2,27 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
 
-import { getTimeSeries } from '../../../reducers/reducer';
+import { getTimeSeries, getLoading, getError } from '../../../reducers/reducer';
+import AdaptiveLoader from '../loader/adaptiveLoader';
 
 const Graph = props => {
-  const data = props.timeSeries
-    ? extractClosePrice(props.timeSeries.fiveD)
-    : null;
   return (
-    <div className="graph-area">
-      {props.timeSeries ? (
-        <VictoryChart theme={VictoryTheme.material} width={900}>
-          <VictoryLine
-            data={data}
-            style={{
-              data: { stroke: 'F4F6F9' },
-              parent: { border: '1px solid #F4F6F9' },
-              labels: { fill: '#F4F6F9' },
-            }}
-          />
-        </VictoryChart>
-      ) : null}
-    </div>
+    <>
+      {props.loading && <AdaptiveLoader />}
+      {props.timeSeries && !props.loading && (
+        <div className="graph-area">
+          <VictoryChart theme={VictoryTheme.material} width={900}>
+            <VictoryLine
+              data={extractClosePrice(props.timeSeries.fiveD)}
+              style={{
+                data: { stroke: 'F4F6F9' },
+                parent: { border: '1px solid #F4F6F9' },
+                labels: { fill: '#F4F6F9' },
+              }}
+            />
+          </VictoryChart>
+        </div>
+      )}
+      {props.error && <div>Error: {props.error} </div>}
+    </>
   );
 };
 
@@ -34,6 +36,8 @@ const extractClosePrice = data => {
 
 const mapStateToProps = state => ({
   timeSeries: getTimeSeries(state),
+  loading: getLoading(state),
+  error: getError(state),
 });
 
 export default connect(mapStateToProps)(Graph);

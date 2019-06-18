@@ -8,7 +8,7 @@ import {
 const DEFAULT_STATE = {
   companySymbol: '',
   error: null,
-  loading: false,
+  loading: null,
   timeSeries: null,
   topPeers: null,
   companyOverview: null,
@@ -35,7 +35,7 @@ const fetchApiSuccess = (state, action) => {
 
   return {
     ...state,
-    loading: false,
+    loading: null,
     topNews: _topNews,
     topPeers: _topPeers,
     companyOverview: _companyOverview,
@@ -51,7 +51,7 @@ const fetchApiSuccess = (state, action) => {
 };
 
 const fetchApiFailure = (state, action) => {
-  return { ...state, loading: false, error: action.payload };
+  return { ...state, loading: null, error: action.payload };
 };
 
 export const reducer = (state = DEFAULT_STATE, action) => {

@@ -1,18 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getTopNews } from '../../../reducers/reducer';
+
+import { getTopNews, getLoading, getError } from '../../../reducers/reducer';
+import AdaptiveLoader from '../loader/adaptiveLoader';
 
 const LatestNews = props => {
   return (
-    <div className="news-area">
-      {props.topNews ? generateNews(props.topNews) : null}
-    </div>
+    <>
+      {props.loading && <AdaptiveLoader />}
+      <div className="news-area">
+        {props.topNews && !props.loading && generateNews(props.topNews)}
+      </div>
+      {props.error && <div>Error: {props.error}</div>}
+    </>
   );
 };
-
-const mapStateToProps = state => ({
-  topNews: getTopNews(state),
-});
 
 const generateNews = news => {
   return news.map(n => {
@@ -24,5 +26,11 @@ const generateNews = news => {
     );
   });
 };
+
+const mapStateToProps = state => ({
+  topNews: getTopNews(state),
+  loading: getLoading(state),
+  error: getError(state),
+});
 
 export default connect(mapStateToProps)(LatestNews);
