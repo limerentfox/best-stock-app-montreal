@@ -6,7 +6,6 @@ import {
 } from '../const/actions';
 
 const DEFAULT_STATE = {
-    companySymbol: '',
     error: undefined,
     loading: undefined,
     timeSeries: undefined,
@@ -16,10 +15,6 @@ const DEFAULT_STATE = {
     },
     topNews: undefined,
     keyStats: undefined,
-};
-
-const setCompanySymbol = (state, action) => {
-    return {...state, companySymbol: action.payload };
 };
 
 const fetchApiBegin = state => {
@@ -64,8 +59,6 @@ export const reducer = (state = DEFAULT_STATE, action) => {
             return fetchApiSuccess(state, action);
         case FETCH_API_FAILURE:
             return fetchApiFailure(state, action);
-        case SET_COMPANY_SYMBOL:
-            return setCompanySymbol(state, action);
         default:
             return state;
     }

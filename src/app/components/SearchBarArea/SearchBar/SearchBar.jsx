@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import { connect } from 'react-redux';
 import {
   getError,
@@ -11,13 +11,15 @@ export const SearchBar = ({ fetchData }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleFetchData = useCallback(
-    () => {
+    (event) => {
+      event.preventDefault();
       fetchData(searchTerm)
-    },[searchTerm]
+    },[fetchData, searchTerm]
   )
 
   return (
     <div className="search-bar-area">
+      <form>
         <button
           type="submit"
           value={searchTerm}
@@ -32,6 +34,7 @@ export const SearchBar = ({ fetchData }) => {
           onChange={newInput => setSearchTerm(newInput.target.value)}
           required
         />
+        </form>
     </div>
   );
 };
