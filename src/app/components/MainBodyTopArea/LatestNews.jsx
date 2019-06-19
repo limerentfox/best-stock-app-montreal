@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getTopNews, getLoading, getError } from '../../../reducers/reducer';
+import { getTopNews, getLoading, getError } from '../../../reducers/selectors';
 import AdaptiveLoader from '../loader/adaptiveLoader';
 
 const LatestNews = props => {

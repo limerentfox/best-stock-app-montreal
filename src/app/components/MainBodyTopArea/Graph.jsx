@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
 
-import { getTimeSeries, getLoading, getError } from '../../../reducers/reducer';
+import { getTimeSeries, getLoading, getError } from '../../../reducers/selectors';
 import AdaptiveLoader from '../loader/adaptiveLoader';
 
 const Graph = props => {

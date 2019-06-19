@@ -1,30 +1,32 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import { connect } from 'react-redux';
-
 import {
   getCompanySymbol,
   getError,
   getLoading,
-} from '../../../../reducers/reducer';
+} from '../../../../reducers/selectors';
 import { setCompanySymbol } from '../../../../actions/actionCreator';
 import fetchCompanyData from '../../../../actions/fetchCompanyData';
 
-export const SearchBar = props => {
+export const SearchBar = ({companySymbol, fetchData, setCompanySymbol}) => {
+
+  const[searchTerm, setSearchTerm] = useState("");
+
   return (
     <div className="search-bar-area">
       <form>
         <button
           type="submit"
-          value={props.companySymbol}
-          onClick={props.fetchData}
+          value={companySymbol}
+          onClick={fetchData}
         >
           Submit
         </button>
         <input
           type="text"
           placeholder="Type to search..."
-          value={props.companySymbol}
-          onChange={props.setCompanySymbol}
+          value={companySymbol}
+          onChange={setCompanySymbol}
           required
         />
       </form>

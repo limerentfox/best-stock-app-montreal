@@ -1,0 +1,9 @@
+export const getCompanySymbol = state => state.companySymbol;
+export const getError = state => state.error;
+export const getLoading = state => state.loading;
+export const getTimeSeries = state => state.timeSeries;
+export const getTopPeers = state => state.topPeers;
+export const getTopNews = state => state.topNews;
+export const getCompanyOverview = state => state.companyOverview;
+export const getKeyStats = state => state.keyStats;
+export const getCompanyOverviewTags = state => state.companyOverview.tags;
