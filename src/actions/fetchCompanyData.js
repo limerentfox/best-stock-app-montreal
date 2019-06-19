@@ -1,14 +1,14 @@
 import {
-  fetchApiBegin,
-  fetchApiSuccess,
-  fetchApiFailure,
+    fetchApiBegin,
+    fetchApiSuccess,
+    fetchApiFailure,
 } from './actionCreator';
 
 import {
-  fetchOverview,
-  fetchNews,
-  fetchPeers,
-  fetchKeyStats,
+    fetchOverview,
+    fetchNews,
+    fetchPeers,
+    fetchKeyStats,
 } from '../services/protected/protectedFetches';
 
 import { fetchTimeSeries } from '../services/unprotected/unprotectedFetches';
@@ -28,41 +28,41 @@ import { fetchTimeSeries } from '../services/unprotected/unprotectedFetches';
  * In our case the api max interval is 5y
  */
 const fetchCompanyData = companySymbol => {
-  return dispatch => {
-    dispatch(fetchApiBegin());
-    Promise.all([
-      fetchNews(companySymbol),
-      fetchPeers(companySymbol),
-      fetchOverview(companySymbol),
-      fetchKeyStats(companySymbol),
-      Promise.all([
-        fetchTimeSeries(companySymbol, '1d'),
-        fetchTimeSeries(companySymbol, '5d'),
-        fetchTimeSeries(companySymbol, '1m'),
-        fetchTimeSeries(companySymbol, '1y'),
-        fetchTimeSeries(companySymbol),
-      ])
-        .then(response => {
-          if (response.error) {
-            throw response.error;
-          }
-          return response;
-        })
-        .catch(e => {
-          dispatch(fetchApiFailure(e));
-        }),
-    ])
-      .then(response => {
-        if (response.error) {
-          throw response.error;
-        }
-        dispatch(fetchApiSuccess(response));
-        return response;
-      })
-      .catch(e => {
-        dispatch(fetchApiFailure(e));
-      });
-  };
+    return dispatch => {
+        dispatch(fetchApiBegin());
+        Promise.all([
+                fetchNews(companySymbol),
+                fetchPeers(companySymbol),
+                fetchOverview(companySymbol),
+                fetchKeyStats(companySymbol),
+                Promise.all([
+                    fetchTimeSeries(companySymbol, '1d'),
+                    fetchTimeSeries(companySymbol, '5d'),
+                    fetchTimeSeries(companySymbol, '1m'),
+                    fetchTimeSeries(companySymbol, '1y'),
+                    fetchTimeSeries(companySymbol),
+                ])
+                .then(response => {
+                    if (response.error) {
+                        throw response.error;
+                    }
+                    return response;
+                })
+                .catch(e => {
+                    dispatch(fetchApiFailure(e));
+                }),
+            ])
+            .then(response => {
+                if (response.error) {
+                    throw response.error;
+                }
+                dispatch(fetchApiSuccess(response));
+                return response;
+            })
+            .catch(e => {
+                dispatch(fetchApiFailure(e));
+            });
+    };
 };
 
 export default fetchCompanyData;

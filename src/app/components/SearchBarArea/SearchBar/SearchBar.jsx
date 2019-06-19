@@ -1,35 +1,37 @@
 import React, {useState, useCallback} from 'react';
 import { connect } from 'react-redux';
 import {
-  getCompanySymbol,
   getError,
   getLoading,
 } from '../../../../reducers/selectors';
-import { setCompanySymbol } from '../../../../actions/actionCreator';
 import fetchCompanyData from '../../../../actions/fetchCompanyData';
 
-export const SearchBar = ({companySymbol, fetchData, setCompanySymbol}) => {
+export const SearchBar = ({ fetchData }) => {
 
-  const[searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleFetchData = useCallback(
+    () => {
+      fetchData(searchTerm)
+    },[searchTerm]
+  )
 
   return (
     <div className="search-bar-area">
-      <form>
         <button
           type="submit"
-          value={companySymbol}
-          onClick={fetchData}
+          value={searchTerm}
+          onClick={handleFetchData}
         >
           Submit
         </button>
         <input
           type="text"
           placeholder="Type to search..."
-          value={companySymbol}
-          onChange={setCompanySymbol}
+          value={searchTerm}
+          onChange={newInput => setSearchTerm(newInput.target.value)}
           required
         />
-      </form>
     </div>
   );
 };
@@ -37,17 +39,12 @@ export const SearchBar = ({companySymbol, fetchData, setCompanySymbol}) => {
 const mapStateToProps = state => ({
   error: getError(state),
   loading: getLoading(state),
-  companySymbol: getCompanySymbol(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: e => {
-    e.preventDefault();
-    dispatch(fetchCompanyData(e.target.value));
-  },
-  setCompanySymbol: e => {
-    dispatch(setCompanySymbol(e.target.value));
-  },
+  fetchData: searchTerm => {
+    dispatch(fetchCompanyData(searchTerm));
+  }
 });
 
 export default connect(
